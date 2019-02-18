@@ -1,4 +1,5 @@
 #include <iostream>
+
 #include "binary_heap.h"
 
 BinaryHeap::BinaryHeap() {
@@ -35,6 +36,10 @@ int BinaryHeap::DeleteMin() {
   }
 
   int deletedMin = heap_[1];
+
+  cout << "HURRR" << endl;
+
+  Print();
 
   // Replace min value with last value in the heap
   heap_[1] = heap_[heap_size()];
@@ -75,7 +80,7 @@ void BinaryHeap::Print() {
 
 // Hole is the start index to percolate upwards
 void BinaryHeap::PercolateUp(int hole) {
-  while(hole >= 1) {
+  while (hole >= 1) {
     if (heap_[hole] < heap_[hole/2]) {
       int temp = heap_[hole];
       heap_[hole] = heap_[hole/2];
@@ -89,6 +94,24 @@ void BinaryHeap::PercolateUp(int hole) {
 
 // Hole is the start index to percholate downwards
 void BinaryHeap::PercolateDown(int hole) {
+  while (hole <= heap_size() && hole * 2 <= heap_size()) {
+    int compareIdx;
+
+    if (heap_[hole*2 + 1] < heap_[hole*2]) {
+      compareIdx = hole*2 + 1;
+    } else {
+      compareIdx = hole*2;
+    }
+
+    if(heap_[hole] > heap_[compareIdx]) {
+      int temp = heap_[hole];
+      heap_[hole] = heap_[compareIdx];
+      heap_[compareIdx] = temp;
+      hole = compareIdx;
+    } else {
+      break;
+    }
+  }
   
 }
 
