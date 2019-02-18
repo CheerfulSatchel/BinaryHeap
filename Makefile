@@ -7,3 +7,6 @@ binary_heap_test.o: binary_heap_test.cpp binary_heap.h
 
 binary_heap_test: binary_heap_test.o binary_heap.o
 	$(CXX) $(CXXFLAGS) -o builds/BinaryHeapTest binary_heap_test.o binary_heap.o
+
+clean:
+	rm *.o
