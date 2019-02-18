@@ -21,28 +21,59 @@ void BinaryHeap::insert(int x) {
 }
 
 int BinaryHeap::findMin() {
-  return -1;
+  if (heap_size == 0) {
+    throw "Nothing to call findMin() on!!";
+  }
+  return heap[1];
 }
 
 int BinaryHeap::deleteMin() {
-  return -1;
+  if (heap_size == 0) {
+    throw "Nothing to call deleteMin() on!!";
+  }
+
+  int deletedMin = heap[1];
+
+  // Replace min value with last value in the heap
+  heap[1] = heap[heap_size];
+  
+  // Remove last value from heap
+  heap.pop_back();
+  heap_size
+
+  // Percolate value down from index of minimum value
+  percolateDown(1);
+
+  return deletedMin;
 }
 
 unsigned int BinaryHeap::size() {
-  return 0;
+  return heap_size;
 }
 
 void BinaryHeap::makeEmpty() {
-
+  heap_size = 0;
+  heap.resize(1);
 }
 
 bool BinaryHeap::isEmpty() {
-  return false;
+  return heap_size == 0;
 }
 
 void BinaryHeap::print() {
 
 }
+
+// Hole is the start index to percolate upwards
+void BinaryHeap::percolateUp(int hole) {
+
+}
+
+// Hole is the start index to percholate downwards
+void BinaryHeap::percolateDown(int hole) {
+  
+}
+
 
 
 
