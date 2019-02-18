@@ -7,8 +7,10 @@ BinaryHeap::BinaryHeap() {
 }
 
 BinaryHeap::BinaryHeap(vector<int> vec) {
-  heap_ = vec;
-  // TODO: Construct the heap using the vector... 
+  int i;
+  for (i = 0; i < vec.size(); i++) {
+    Insert(vec[i]);
+  }
 }
 
 BinaryHeap::~BinaryHeap() {

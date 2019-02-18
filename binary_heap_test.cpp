@@ -51,8 +51,17 @@ int main() {
   expected_vec.resize(1);
 
   assert(heap->heap() == expected_vec);
+
+  expected_vec.push_back(3);
+  expected_vec.push_back(7);
+  expected_vec.push_back(1);
+
+  BinaryHeap* another_heap = new BinaryHeap(expected_vec);
+
+  another_heap->Print();
   
   delete heap;
+  delete another_heap;
   
   return 0;
 }
