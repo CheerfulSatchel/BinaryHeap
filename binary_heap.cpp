@@ -2,13 +2,11 @@
 #include "binary_heap.h"
 
 BinaryHeap::BinaryHeap() {
-  heap_size_ = 0;
   heap_.push_back(0);
+  cout << "heee" << endl;
 }
 
 BinaryHeap::BinaryHeap(vector<int> vec) {
-  heap_size_ = vec.size();
-
   heap_ = vec;
   // TODO: Construct the heap using the vector... 
 }
@@ -17,29 +15,32 @@ BinaryHeap::~BinaryHeap() {
 }
 
 void BinaryHeap::Insert(int x) {
+  // Write value to end of heap
+  heap_.push_back(x);
+
+  PercolateUp(heap_size());
 
 }
 
 int BinaryHeap::FindMin() {
-  if (heap_size_ == 0) {
+  if (heap_size() == 0) {
     throw "Nothing to call findMin() on!!";
   }
   return heap_[1];
 }
 
 int BinaryHeap::DeleteMin() {
-  if (heap_size_ == 0) {
+  if (heap_size() == 0) {
     throw "Nothing to call deleteMin() on!!";
   }
 
   int deletedMin = heap_[1];
 
   // Replace min value with last value in the heap
-  heap_[1] = heap_[heap_size_];
+  heap_[1] = heap_[heap_size()];
   
   // Remove last value from heap
   heap_.pop_back();
-  heap_size_ -= 1;
 
   // Percolate value down from index of minimum value
   PercolateDown(1);
@@ -48,25 +49,42 @@ int BinaryHeap::DeleteMin() {
 }
 
 unsigned int BinaryHeap::heap_size() {
-  return heap_size_;
+  // Subtract 1 to account for sentinel value at start
+  return heap_.size()-1;
+}
+
+vector<int> BinaryHeap::heap() {
+  return heap_;
 }
 
 void BinaryHeap::MakeEmpty() {
-  heap_size_ = 0;
   heap_.resize(1);
 }
 
 bool BinaryHeap::IsEmpty() {
-  return heap_size_ == 0;
+  return heap_size() == 1;
 }
 
 void BinaryHeap::Print() {
-
+  int i;
+  for (i = 1; i <= heap_size(); i++) {
+    cout << heap_[i] << " ";
+  }
+  cout << endl;
 }
 
 // Hole is the start index to percolate upwards
 void BinaryHeap::PercolateUp(int hole) {
-
+  while(hole >= 1) {
+    if (heap_[hole] < heap_[hole/2]) {
+      int temp = heap_[hole];
+      heap_[hole] = heap_[hole/2];
+      heap_[hole/2] = temp;
+      hole = hole/2;
+    } else {
+      break;
+    }
+  }
 }
 
 // Hole is the start index to percholate downwards

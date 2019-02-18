@@ -32,10 +32,10 @@ class BinaryHeap {
 
   // Getters
   unsigned int heap_size();
+  vector<int> heap();
 
  private:
   vector<int> heap_;
-  unsigned int heap_size_;
 
   void PercolateUp(int hole);
   void PercolateDown(int hole);
