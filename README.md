@@ -1,6 +1,6 @@
 # BinaryHeap
 
-Simple implementation of a min-heap using a vector in C++.
+Simple implementation of a <a href="https://www.cs.cmu.edu/~tcortina/15-121sp10/Unit06B.pdf" target="_blank">min-heap</a> using a vector in C++.
 
 ## Motivation
 
