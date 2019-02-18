@@ -4,7 +4,6 @@
 
 BinaryHeap::BinaryHeap() {
   heap_.push_back(0);
-  cout << "heee" << endl;
 }
 
 BinaryHeap::BinaryHeap(vector<int> vec) {
@@ -36,10 +35,6 @@ int BinaryHeap::DeleteMin() {
   }
 
   int deletedMin = heap_[1];
-
-  cout << "HURRR" << endl;
-
-  Print();
 
   // Replace min value with last value in the heap
   heap_[1] = heap_[heap_size()];
