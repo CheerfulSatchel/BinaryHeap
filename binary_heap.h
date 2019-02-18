@@ -21,21 +21,24 @@ class BinaryHeap {
   BinaryHeap(vector<int> vec);
 
   ~BinaryHeap();
+  
+  // Methods
+  void Insert(int x);
+  int FindMin();
+  int DeleteMin();
+  void MakeEmpty();
+  bool IsEmpty();
+  void Print();
 
-  void insert(int x);
-  int findMin();
-  int deleteMin();
-  unsigned int size();
-  void makeEmpty();
-  bool isEmpty();
-  void print();
+  // Getters
+  unsigned int heap_size();
 
  private:
-  vector<int> heap;
-  unsigned int heap_size;
+  vector<int> heap_;
+  unsigned int heap_size_;
 
-  void percolateUp(int hole);
-  void percolateDown(int hole);
+  void PercolateUp(int hole);
+  void PercolateDown(int hole);
 };
 
 #endif

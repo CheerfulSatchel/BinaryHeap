@@ -1,4 +1,4 @@
-#include "BinaryHeap.h"
+#include "binary_heap.h"
 
 int main() {
 
