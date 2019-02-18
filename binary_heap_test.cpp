@@ -6,14 +6,16 @@
 int main() {
   cout << "Welcome to the heap tester wester!" << endl;
   BinaryHeap* heap = new BinaryHeap();
-
+  vector<int> expected_vec;
+  
   heap->Insert(2);
   heap->Insert(4);
   heap->Insert(6);
   heap->Insert(7);
   heap->Insert(5);
 
-  vector<int> expected_vec;
+  heap->Print();
+
   expected_vec.push_back(0);
   expected_vec.push_back(2);
   expected_vec.push_back(4);
@@ -25,6 +27,8 @@ int main() {
 
   heap->Insert(3);
 
+  heap->Print();
+
   expected_vec.resize(1);
   expected_vec.push_back(2);
   expected_vec.push_back(4);
@@ -35,8 +39,18 @@ int main() {
 
   assert(heap->heap() == expected_vec);
 
+  heap->DeleteMin();
+  
   heap->Print();
 
+  heap->DeleteMin();
+  
+  heap->Print();
+
+  heap->MakeEmpty();
+  expected_vec.resize(1);
+
+  assert(heap->heap() == expected_vec);
   
   delete heap;
   
