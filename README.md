@@ -8,9 +8,11 @@ To review old algorithms and re-familiarize self with C++.
 
 ## Notes
 
-The `binary_heap` interface is dissimilar but based on UVA Professor Aaron Bloomfield's interface. See https://aaronbloomfield.github.io/pdr/slides/code/10-heaps-huffman/binary_heap.h.html. The implementation was done by self.
+The `binary_heap` interface is dissimilar but based on UVA Professor Aaron Bloomfield's interface. See https://aaronbloomfield.github.io/pdr/slides/code/10-heaps-huffman/binary_heap.h.html. 
 
-I'll probably use this code to re-implement Huffman encoding/decoding, if I feel like it... 
+The implementation was done by self. 😀
+
+I am using this code to re-implement Huffman encoding/decoding. 
 
 ## Testing
 
